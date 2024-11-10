@@ -84,7 +84,7 @@ const App = () => {
         })}
         initialNumToRender={1}
         maxToRenderPerBatch={5}
-        windowSize={2}
+        windowSize={1}
         removeClippedSubviews
         onEndReachedThreshold={0.1}
       />

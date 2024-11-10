@@ -1,11 +1,5 @@
-import {
-  requireNativeComponent,
-  Platform,
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {requireNativeComponent, Platform, View, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
 
 // Define separate components for iOS and Android
 const CustomVideoPlayerIOS =
@@ -17,23 +11,14 @@ const CustomVideoPlayerAndroid =
     : null;
 
 const VideoPlayer = ({videoUrl, paused = false, muted = false, style}) => {
-  const [error, setError] = useState(null);
-  const [isReady, setIsReady] = useState(false);
-
   useEffect(() => {
-    console.log('[VideoPlayer] Initializing with URL:', videoUrl);
-
     // Check URL accessibility
     fetch(videoUrl, {method: 'HEAD'})
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
         }
-        console.log('[VideoPlayer] URL is accessible:', videoUrl);
-        console.log(
-          '[VideoPlayer] Content-Type:',
-          response.headers.get('content-type'),
-        );
+        console.log('[VideoPlayer] URL is accessible');
       })
       .catch(err => console.error('[VideoPlayer] URL check failed:', err));
   }, [videoUrl]);
@@ -41,14 +26,10 @@ const VideoPlayer = ({videoUrl, paused = false, muted = false, style}) => {
   const handleError = event => {
     const errorMessage = event.nativeEvent?.error || 'Unknown error occurred';
     console.error('[VideoPlayer] Error:', errorMessage);
-    setError(errorMessage);
-    setIsReady(false);
   };
 
   const handleReady = () => {
     console.log('[VideoPlayer] Ready');
-    setIsReady(true);
-    setError(null);
   };
 
   const handleEnd = () => {
@@ -78,21 +59,11 @@ const VideoPlayer = ({videoUrl, paused = false, muted = false, style}) => {
 
   return (
     <View style={styles.container}>
-      {error && <Text style={styles.errorText}>Error: {error}</Text>}
-
       {Platform.OS === 'ios' ? (
         <CustomVideoPlayerIOS {...iosProps} />
       ) : (
         <CustomVideoPlayerAndroid {...androidProps} />
       )}
-
-      {!isReady && !error && (
-        <View style={styles.loadingContainer}>
-          <Text style={styles.loadingText}>Loading video...</Text>
-        </View>
-      )}
-
-      <Text style={styles.platformText}>CustomVideoPlayer {Platform.OS}</Text>
     </View>
   );
 };
