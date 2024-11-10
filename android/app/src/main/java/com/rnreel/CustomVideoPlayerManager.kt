@@ -45,16 +45,20 @@ class CustomVideoPlayerManager : SimpleViewManager<FrameLayout>() {
         return frameLayout
     }
 
-    private fun applyStyles(frameLayout: FrameLayout, videoView: VideoView) {
-        val context = frameLayout.context
+ private fun applyStyles(frameLayout: FrameLayout, videoView: VideoView) {
+    // Set FrameLayout to full screen
+    frameLayout.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+    frameLayout.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
 
-        frameLayout.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
-        frameLayout.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+    // Set VideoView to full screen within FrameLayout
+    val videoLayoutParams = FrameLayout.LayoutParams(
+        ViewGroup.LayoutParams.MATCH_PARENT,
+        ViewGroup.LayoutParams.MATCH_PARENT
+    )
+    videoLayoutParams.setMargins(0, 0, 0, 0) // Remove margins for full screen
+    videoView.layoutParams = videoLayoutParams
+}
 
-        val videoLayoutParams = videoView.layoutParams as FrameLayout.LayoutParams
-        videoLayoutParams.setMargins(10, 10, 10, 10)
-        videoView.layoutParams = videoLayoutParams
-    }
 
     @ReactProp(name = "sourceUrl")
     fun setSourceUrl(view: FrameLayout, url: String?) {

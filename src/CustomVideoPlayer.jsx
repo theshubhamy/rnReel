@@ -1,4 +1,4 @@
-import {requireNativeComponent, Platform, View, StyleSheet} from 'react-native';
+import {requireNativeComponent, Platform, View} from 'react-native';
 import React, {useEffect} from 'react';
 
 // Define separate components for iOS and Android
@@ -20,7 +20,9 @@ const VideoPlayer = ({videoUrl, paused = false, muted = false, style}) => {
         }
         console.log('[VideoPlayer] URL is accessible');
       })
-      .catch(err => console.error('[VideoPlayer] URL check failed:', err));
+      .catch(err =>
+        console.error('[VideoPlayer] URL check failed:', err, videoUrl),
+      );
   }, [videoUrl]);
 
   const handleError = event => {
@@ -38,7 +40,7 @@ const VideoPlayer = ({videoUrl, paused = false, muted = false, style}) => {
 
   // Common props for both platforms
   const videoProps = {
-    style: [styles.video, style],
+    style: style,
     paused,
     muted,
   };
@@ -58,7 +60,7 @@ const VideoPlayer = ({videoUrl, paused = false, muted = false, style}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       {Platform.OS === 'ios' ? (
         <CustomVideoPlayerIOS {...iosProps} />
       ) : (
@@ -67,45 +69,5 @@ const VideoPlayer = ({videoUrl, paused = false, muted = false, style}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: 300,
-    backgroundColor: '#000',
-  },
-  video: {
-    flex: 1,
-  },
-  loadingContainer: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-  },
-  loadingText: {
-    color: 'white',
-    fontSize: 16,
-  },
-  errorText: {
-    color: 'red',
-    textAlign: 'center',
-    padding: 10,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 1,
-  },
-  platformText: {
-    fontSize: 16,
-    color: '#fff',
-    position: 'absolute',
-    top: 0,
-    textAlign: 'center',
-    width: '100%',
-    zIndex: 2,
-  },
-});
 
 export default VideoPlayer;
