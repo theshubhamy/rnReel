@@ -12,7 +12,7 @@ const App = () => {
     if (viewableItems.length > 0) {
       setCurrentIndex(viewableItems[0].index || 0);
     }
-  }).current; // Use `.current` directly here
+  }).current;
 
   const handleMomentumScrollEnd = useCallback(
     event => {

@@ -116,4 +116,15 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+    implementation 'androidx.media3:media3-exoplayer:1.1.0' // Media3 ExoPlayer
+    implementation 'androidx.media3:media3-ui:1.1.0'       // Media3 UI components for PlayerView
+
+    // For backward compatibility, ExoPlayer 2.x core and UI dependencies can also be used if needed
+    implementation 'com.google.android.exoplayer2:exoplayer-core:2.18.1'  // If you still need core ExoPlayer functionality
+    implementation 'com.google.android.exoplayer2:exoplayer-ui:2.18.1'    // ExoPlayer UI component
+
+    // Other dependencies
+    implementation 'com.facebook.react:react-native:+'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
