@@ -12,11 +12,19 @@
     "build:android": "cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
+    "@react-native-camera-roll/camera-roll": "^7.8.3",
+    "@react-native-masked-view/masked-view": "^0.3.2",
+    "@react-navigation/native": "^7.0.2",
+    "@react-navigation/stack": "^7.0.2",
     "ffmpeg-kit-react-native": "^6.0.2",
     "lodash": "^4.17.21",
     "react": "18.3.1",
     "react-native": "0.76.1",
-    "react-native-image-picker": "^7.1.2"
+    "react-native-gesture-handler": "^2.21.0",
+    "react-native-image-picker": "^7.1.2",
+    "react-native-safe-area-context": "^4.14.0",
+    "react-native-screens": "^4.1.0",
+    "react-native-video": "^6.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

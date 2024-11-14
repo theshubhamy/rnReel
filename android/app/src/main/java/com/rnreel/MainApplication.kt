@@ -20,8 +20,7 @@ class MainApplication : Application(), ReactApplication {
       object : DefaultReactNativeHost(this) {
         override fun getPackages(): List<ReactPackage> =
             PackageList(this).packages.apply {
-
-              add(VideoTrimmerPackage())
+                // add(VideoTrimmerPackage())
             }
 
         override fun getJSMainModuleName(): String = "index"
