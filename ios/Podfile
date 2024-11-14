@@ -15,8 +15,9 @@ if linkage != nil
 end
 
 target 'rnReel' do
-  config = use_native_modules!
 
+  pod 'ffmpeg-kit-react-native', :subspecs => ['full'], :podspec => '../node_modules/ffmpeg-kit-react-native/ffmpeg-kit-react-native.podspec'
+  config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">rnReel</string>
+    <string name="background_color">#fff</string>
 </resources>

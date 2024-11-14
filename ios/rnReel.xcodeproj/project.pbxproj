@@ -14,6 +14,14 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		51154DC52CDF7552005C09B1 /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51154DC42CDF7552005C09B1 /* CustomVideoPlayer.swift */; };
 		51154DC72CDF761A005C09B1 /* CustomVideoPlayerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 51154DC62CDF761A005C09B1 /* CustomVideoPlayerBridge.m */; };
+		5118A3B32CE4ED4500D4149C /* VideoTrimmerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3B22CE4ED4500D4149C /* VideoTrimmerViewController.swift */; };
+		5118A3B52CE4ED6700D4149C /* VideoTrimmerThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3B42CE4ED6700D4149C /* VideoTrimmerThumb.swift */; };
+		5118A3B72CE4ED7A00D4149C /* VideoTrimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3B62CE4ED7A00D4149C /* VideoTrimmer.swift */; };
+		5118A3B92CE4ED8C00D4149C /* VideoTrim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3B82CE4ED8C00D4149C /* VideoTrim.swift */; };
+		5118A3BB2CE4EDB500D4149C /* VideoTrim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3BA2CE4EDB500D4149C /* VideoTrim.m */; };
+		5118A3BD2CE4EDDB00D4149C /* ProgressAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3BC2CE4EDDB00D4149C /* ProgressAlertController.swift */; };
+		5118A3BF2CE4EDEC00D4149C /* AssetLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3BE2CE4EDEC00D4149C /* AssetLoader.swift */; };
+		5118A3C12CE4EDFE00D4149C /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3C02CE4EDFE00D4149C /* ErrorCode.swift */; };
 		7699B88040F8A987B510C191 /* libPods-rnReel-rnReelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-rnReel-rnReelTests.a */; };
 		77D25161233F263EA529D341 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -45,6 +53,14 @@
 		51154DC32CDF7552005C09B1 /* rnReel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rnReel-Bridging-Header.h"; sourceTree = "<group>"; };
 		51154DC42CDF7552005C09B1 /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
 		51154DC62CDF761A005C09B1 /* CustomVideoPlayerBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomVideoPlayerBridge.m; sourceTree = "<group>"; };
+		5118A3B22CE4ED4500D4149C /* VideoTrimmerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTrimmerViewController.swift; sourceTree = "<group>"; };
+		5118A3B42CE4ED6700D4149C /* VideoTrimmerThumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTrimmerThumb.swift; sourceTree = "<group>"; };
+		5118A3B62CE4ED7A00D4149C /* VideoTrimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTrimmer.swift; sourceTree = "<group>"; };
+		5118A3B82CE4ED8C00D4149C /* VideoTrim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTrim.swift; sourceTree = "<group>"; };
+		5118A3BA2CE4EDB500D4149C /* VideoTrim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTrim.m; sourceTree = "<group>"; };
+		5118A3BC2CE4EDDB00D4149C /* ProgressAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlertController.swift; sourceTree = "<group>"; };
+		5118A3BE2CE4EDEC00D4149C /* AssetLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetLoader.swift; sourceTree = "<group>"; };
+		5118A3C02CE4EDFE00D4149C /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-rnReel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnReel.release.xcconfig"; path = "Target Support Files/Pods-rnReel/Pods-rnReel.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-rnReel-rnReelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnReel-rnReelTests.debug.xcconfig"; path = "Target Support Files/Pods-rnReel-rnReelTests/Pods-rnReel-rnReelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-rnReel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnReel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +119,14 @@
 				51154DC42CDF7552005C09B1 /* CustomVideoPlayer.swift */,
 				51154DC32CDF7552005C09B1 /* rnReel-Bridging-Header.h */,
 				51154DC62CDF761A005C09B1 /* CustomVideoPlayerBridge.m */,
+				5118A3B22CE4ED4500D4149C /* VideoTrimmerViewController.swift */,
+				5118A3B42CE4ED6700D4149C /* VideoTrimmerThumb.swift */,
+				5118A3B62CE4ED7A00D4149C /* VideoTrimmer.swift */,
+				5118A3BA2CE4EDB500D4149C /* VideoTrim.m */,
+				5118A3BC2CE4EDDB00D4149C /* ProgressAlertController.swift */,
+				5118A3BE2CE4EDEC00D4149C /* AssetLoader.swift */,
+				5118A3C02CE4EDFE00D4149C /* ErrorCode.swift */,
+				5118A3B82CE4ED8C00D4149C /* VideoTrim.swift */,
 			);
 			name = rnReel;
 			sourceTree = "<group>";
@@ -405,9 +429,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				51154DC72CDF761A005C09B1 /* CustomVideoPlayerBridge.m in Sources */,
+				5118A3BB2CE4EDB500D4149C /* VideoTrim.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				5118A3B72CE4ED7A00D4149C /* VideoTrimmer.swift in Sources */,
+				5118A3B32CE4ED4500D4149C /* VideoTrimmerViewController.swift in Sources */,
+				5118A3BD2CE4EDDB00D4149C /* ProgressAlertController.swift in Sources */,
+				5118A3BF2CE4EDEC00D4149C /* AssetLoader.swift in Sources */,
+				5118A3B52CE4ED6700D4149C /* VideoTrimmerThumb.swift in Sources */,
+				5118A3B92CE4ED8C00D4149C /* VideoTrim.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				51154DC52CDF7552005C09B1 /* CustomVideoPlayer.swift in Sources */,
+				5118A3C12CE4EDFE00D4149C /* ErrorCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +632,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -669,7 +704,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
