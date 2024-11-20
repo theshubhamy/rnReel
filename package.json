@@ -9,7 +9,8 @@
     "start": "react-native start --reset-cache",
     "test": "jest",
     "clean": "cd android && ./gradlew clean && cd ..",
-    "build:android": "cd android && ./gradlew assembleRelease"
+    "build:android": "cd android && ./gradlew assembleRelease",
+    "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios"
   },
   "dependencies": {
     "@react-native-camera-roll/camera-roll": "^7.8.3",

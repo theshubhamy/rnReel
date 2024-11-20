@@ -22,6 +22,7 @@
 		5118A3BD2CE4EDDB00D4149C /* ProgressAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3BC2CE4EDDB00D4149C /* ProgressAlertController.swift */; };
 		5118A3BF2CE4EDEC00D4149C /* AssetLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3BE2CE4EDEC00D4149C /* AssetLoader.swift */; };
 		5118A3C12CE4EDFE00D4149C /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A3C02CE4EDFE00D4149C /* ErrorCode.swift */; };
+		5135C6E32CEE4748001F9AF9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 5135C6E22CEE4748001F9AF9 /* main.jsbundle */; };
 		7699B88040F8A987B510C191 /* libPods-rnReel-rnReelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-rnReel-rnReelTests.a */; };
 		77D25161233F263EA529D341 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		5118A3BC2CE4EDDB00D4149C /* ProgressAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAlertController.swift; sourceTree = "<group>"; };
 		5118A3BE2CE4EDEC00D4149C /* AssetLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetLoader.swift; sourceTree = "<group>"; };
 		5118A3C02CE4EDFE00D4149C /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
+		5135C6E22CEE4748001F9AF9 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-rnReel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnReel.release.xcconfig"; path = "Target Support Files/Pods-rnReel/Pods-rnReel.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-rnReel-rnReelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnReel-rnReelTests.debug.xcconfig"; path = "Target Support Files/Pods-rnReel-rnReelTests/Pods-rnReel-rnReelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-rnReel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnReel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 		13B07FAE1A68108700A75B9A /* rnReel */ = {
 			isa = PBXGroup;
 			children = (
+				5135C6E22CEE4748001F9AF9 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -279,6 +282,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				77D25161233F263EA529D341 /* PrivacyInfo.xcprivacy in Resources */,
+				5135C6E32CEE4748001F9AF9 /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,10 +636,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -704,10 +705,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

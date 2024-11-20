@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
-  Platform,
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {openVideoTrimmer} from './VideoTrimmer';
@@ -17,7 +16,6 @@ const Trim = () => {
 
   // Open gallery to select multiple videos
   const openGallery = () => {
-    console.log(Platform.OS);
     launchImageLibrary(
       {
         mediaType: 'video',
