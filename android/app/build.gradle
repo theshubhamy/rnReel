@@ -1,4 +1,4 @@
-// Apply plugins
+// Apply required plugins at the top
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
@@ -73,12 +73,35 @@ dependencies {
     } else {
         implementation jscFlavor
     }
-    implementation(project(mapOf("path" to ":video-trimmer")))
 
 
+   implementation("com.facebook.react:react-android")
+    implementation "com.facebook.react:react-native:+"
 
-    // Additional dependencies
-    implementation 'com.facebook.react:react-native:0.20.1'
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    // Lifecycle dependencies
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.6.1'
+
+    // AndroidX and Google dependencies
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.android.gms:play-services-auth:20.3.0")
+
+ // Video trimming package
+    // implementation project(':video-trimmer')
+
+
+    // ExoPlayer and caching
+    implementation 'androidx.media3:media3-exoplayer:1.2.0'
+    implementation 'androidx.media3:media3-ui:1.2.0'
+
+    // Utility libraries
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    // Unit tests
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }

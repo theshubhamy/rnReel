@@ -4,6 +4,6 @@ extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autoli
 rootProject.name = 'rnReel'
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
-include ':app', ':video-trimmer'
-project(':video-trimmer').projectDir = file('./video-trimmer') // replace with the actual path
+// include ':app', ':video-trimmer'
+// project(':video-trimmer').projectDir = file('./video-trimmer')
 
