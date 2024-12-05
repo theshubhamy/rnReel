@@ -14,3 +14,4 @@ class CustomVideoPlayerPackage : ReactPackage {
         return listOf(CustomVideoPlayerManager())
     }
 }
+

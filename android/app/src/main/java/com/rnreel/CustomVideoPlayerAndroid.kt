@@ -1,8 +1,10 @@
+
 package com.rnreel
 
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
+import android.util.Log
 import android.widget.FrameLayout
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -32,7 +34,8 @@ class CustomVideoPlayerAndroid @JvmOverloads constructor(
     private var exoPlayer: ExoPlayer? = null
     private var simpleCache: SimpleCache? = null
     private var callback: VideoPlayerCallback? = null
-    private var isPreloaded: Boolean = false // Track preload status
+    private var isPreloaded: Boolean = false
+    private var currentPlaybackPosition: Long = 0 // Save playback position
 
     init {
         playerView = PlayerView(context).apply {
@@ -51,12 +54,7 @@ class CustomVideoPlayerAndroid @JvmOverloads constructor(
 
     private fun setupPlayer() {
         val loadControl = DefaultLoadControl.Builder()
-            .setBufferDurationsMs(
-                500,    // Minimum buffer before playback starts
-                1500,   // Maximum buffer during playback
-                500,    // Minimum buffer for playback after rebuffer
-                500     // Back buffer
-            )
+            .setBufferDurationsMs(500, 1500, 500, 500)
             .build()
 
         exoPlayer = ExoPlayer.Builder(context)
@@ -77,6 +75,7 @@ class CustomVideoPlayerAndroid @JvmOverloads constructor(
 
                     override fun onPlayerError(error: PlaybackException) {
                         callback?.onError(error.message ?: "Unknown error")
+                        Log.e("CustomVideoPlayer", "Playback Error: ${error.message}")
                     }
                 })
                 playerView.player = this
@@ -84,12 +83,11 @@ class CustomVideoPlayerAndroid @JvmOverloads constructor(
     }
 
     fun setVideoUrl(url: String) {
+        Log.e("Video URL", url)
         if (isPreloaded) {
-            // If preloaded, the media source is already prepared
             exoPlayer?.playWhenReady = true
-            isPreloaded = false // Reset preload flag
+            isPreloaded = false
         } else {
-            // Normal playback
             val cacheDataSourceFactory = CacheDataSource.Factory()
                 .setCache(simpleCache!!)
                 .setUpstreamDataSourceFactory(DefaultHttpDataSource.Factory())
@@ -97,20 +95,19 @@ class CustomVideoPlayerAndroid @JvmOverloads constructor(
                 .createMediaSource(MediaItem.fromUri(Uri.parse(url)))
 
             exoPlayer?.setMediaSource(mediaSource)
-            exoPlayer?.playWhenReady = true // Start immediately
+            exoPlayer?.playWhenReady = true
             exoPlayer?.prepare()
         }
     }
 
     fun preloadVideo(url: String) {
-        // Preload the next video
         val cacheDataSourceFactory = CacheDataSource.Factory()
             .setCache(simpleCache!!)
             .setUpstreamDataSourceFactory(DefaultHttpDataSource.Factory())
         val mediaSource = ProgressiveMediaSource.Factory(cacheDataSourceFactory)
             .createMediaSource(MediaItem.fromUri(Uri.parse(url)))
 
-        exoPlayer?.setMediaSource(mediaSource, false) // Prepare without playback
+        exoPlayer?.setMediaSource(mediaSource, false)
         exoPlayer?.prepare()
         isPreloaded = true
     }
@@ -127,11 +124,21 @@ class CustomVideoPlayerAndroid @JvmOverloads constructor(
         this.callback = callback
     }
 
+    fun savePlaybackPosition() {
+        currentPlaybackPosition = exoPlayer?.currentPosition ?: 0
+    }
+
+    fun restorePlaybackPosition() {
+        exoPlayer?.seekTo(currentPlaybackPosition)
+    }
+
     override fun onResume(owner: LifecycleOwner) {
+        restorePlaybackPosition()
         exoPlayer?.playWhenReady = true
     }
 
     override fun onPause(owner: LifecycleOwner) {
+        savePlaybackPosition()
         exoPlayer?.playWhenReady = false
     }
 
@@ -145,7 +152,7 @@ class CustomVideoPlayerAndroid @JvmOverloads constructor(
         fun getCache(context: Context): SimpleCache {
             if (simpleCache == null) {
                 val cacheDir = File(context.cacheDir, "media_cache")
-                val cacheEvictor = LeastRecentlyUsedCacheEvictor(100 * 1024 * 1024) // 100 MB
+                val cacheEvictor = LeastRecentlyUsedCacheEvictor(100 * 1024 * 1024)
                 simpleCache = SimpleCache(cacheDir, cacheEvictor, StandaloneDatabaseProvider(context))
             }
             return simpleCache!!
@@ -159,3 +166,4 @@ interface VideoPlayerCallback {
     fun onEnded()
     fun onError(errorMessage: String)
 }
+

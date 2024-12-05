@@ -2,7 +2,6 @@ import React, {useRef, useCallback, useState} from 'react';
 import {FlatList, Dimensions, RefreshControl, View} from 'react-native';
 import Reelcard from './Reelcard';
 import {reels} from './reels';
-import {SwiperFlatList} from './SwiperFlatList';
 import {useAutoContinue} from './useAutoContinue';
 interface Owner {
   _id: string;
@@ -139,27 +138,41 @@ const Reel: React.FC = () => {
     (item: MediaItem, index: number) => index?.toString(),
     [],
   );
-
+  const viewabilityConfig = useRef({
+    itemVisiblePercentThreshold: 50,
+  }).current;
+const getItemLayout = useCallback(
+    (_data: any, index: number) => ({
+      length: screenHeight,
+      offset: screenHeight * index,
+      index,
+    }),
+    [],
+  );
   return (
     <View style={{height: screenHeight}}>
-      <SwiperFlatList
+      <FlatList
         ref={flatListRef}
-        data={reels}
+        data={reels }
         keyExtractor={keyExtractor}
         renderItem={renderItem}
-        index={currentIndex}
-        initialScrollIndex={currentIndex}
-        vertical
-        pagingEnabled
-        decelerationRate="fast"
-        snapToInterval={screenHeight}
-        snapToAlignment="start"
-        onViewableItemsChanged={handleViewableItemsChanged}
         onEndReached={handleEndReached}
-        onEndReachedThreshold={0.8}
+        pagingEnabled
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
+        viewabilityConfig={viewabilityConfig}
+        disableIntervalMomentum={true}
+        removeClippedSubviews
+        windowSize={10}
+        maxToRenderPerBatch={10}
+        initialNumToRender={1}
+        onEndReachedThreshold={0.5}
+        getItemLayout={getItemLayout}
+        onViewableItemsChanged={handleViewableItemsChanged}
+        decelerationRate={'normal'}
+        showsVerticalScrollIndicator={false}
+        scrollEventThrottle={16}
       />
     </View>
   );
